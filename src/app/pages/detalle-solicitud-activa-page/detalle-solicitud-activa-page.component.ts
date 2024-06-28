@@ -6,8 +6,7 @@ import { SolicitudFinalizadaService } from '../../services/solicitud-finalizada.
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from './../../interfaces/Usuario';
 import { firstValueFrom } from 'rxjs';
-import { SolicitudEliminada } from '../../interfaces/SolicitudEliminada';
-import { SolicitudFinalizada } from '../../interfaces/SolicitudFinalizada';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-solicitud-activa-page',
@@ -23,7 +22,8 @@ export class DetalleSolicitudActivaPageComponent implements OnInit {
     private solicitudService: SolicitudService,
     private solicitudFinalizadaService: SolicitudFinalizadaService,
     private usuarioService: UsuarioService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -87,5 +87,6 @@ export class DetalleSolicitudActivaPageComponent implements OnInit {
     ]).catch((error) => {
       console.error('Error:', error);
     });
+    this.router.navigate(['solicitudes-finalizadas']);
   }
 }

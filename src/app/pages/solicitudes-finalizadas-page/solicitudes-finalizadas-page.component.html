@@ -6,7 +6,7 @@
     <div class="row gx-4 justify-content-center">
       <div class="col-lg-12">
         <div class="d-flex justify-content-between align-items-center py-4">
-          <h2>Solicitudes Eliminadas</h2>
+          <h2>Solicitudes Finalizadas</h2>
         </div>
         <table class="table my-4 text-center align-middle">
           <thead>
@@ -24,7 +24,7 @@
             <tr *ngFor="let solicitud of solicitudes; let i = index">
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ solicitud.idSolicitud!.fechaRegistro }}</td>
-              <td>{{"@"}}{{ solicitud.idSolicitud.fechaRegistro}}</td>
+              <td>{{"@"}}{{ solicitud.idSolicitud.idUsuarioSolicitante.nombreUsuario}}</td>
               <td>{{ solicitud.idSolicitud.codigo }}</td>
               <td><span class="badge bg-success">{{ solicitud.idSolicitud.estado }}</span></td>
               <td>{{ solicitud.idSolicitud.modificado ? 'Sí' : 'No' }}</td>
