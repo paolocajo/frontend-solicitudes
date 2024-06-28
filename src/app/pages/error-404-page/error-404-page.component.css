@@ -1,0 +1,12 @@
+.full-height {
+  height: 100vh;
+}
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+img {
+  width: 100%;
+}

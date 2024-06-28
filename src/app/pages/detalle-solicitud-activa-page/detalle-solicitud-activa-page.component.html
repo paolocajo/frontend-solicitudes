@@ -1,0 +1,43 @@
+<app-nav-1></app-nav-1>
+<app-nav-2></app-nav-2>
+<section>
+  <div class="container px-4 py-4">
+    <div class="row gx-4 justify-content-center">
+      <div class="col-lg-4">
+        <h2 class="text-center py-4">Detalle de solicitud activa</h2>
+        <form class="d-flex flex-column">
+          <div class="form-group pb-4">
+            <label for="fecha-registro" class="pb-2 fw-bold">Fecha de registro:</label>
+            <p>{{solicitud.fechaRegistro}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="usuario" class="pb-2  fw-bold">Usuario</label>
+            <p>{{"@"}}{{solicitud.idUsuarioSolicitante.nombreUsuario}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="codigo" class="pb-2 fw-bold">Código</label>
+            <p>{{solicitud.codigo}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="detalle" class="form-label fw-bold">Detalle</label>
+            <p>{{solicitud.detalle}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="usuario-finalizador" class="pb-2">Usuario que finaliza</label>
+            <select class="form-select" aria-label="select user" id="usuario-finalizador">
+              <option selected disabled>Elige un usuario</option>
+              <option *ngFor="let usuario of usuarios; let i = index" [value]="usuario.idUsuario">
+                {{"@"}}{{usuario.nombreUsuario}}</option>
+            </select>
+          </div>
+          <div class="form-group pb-4">
+            <label for="fecha-finalizacion" class="pb-2">Fecha de finalizacion</label>
+            <input type="date" class="form-control" id="fecha-finalizacion" value="05/06/2012
+            " aria-describedby="fechaHelp" placeholder="Coloca la fecha de registro">
+          </div>
+          <button type="submit" class="btn btn-success ">Finalizar solicitud</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
