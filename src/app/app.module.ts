@@ -16,6 +16,7 @@ import { EliminarSolicitudPageComponent } from './pages/eliminar-solicitud-page/
 import { Nav1Component } from './components/nav-1/nav-1.component';
 import { Nav2Component } from './components/nav-2/nav-2.component';
 import { Error404PageComponent } from './pages/error-404-page/error-404-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { Error404PageComponent } from './pages/error-404-page/error-404-page.com
     Nav2Component,
     Error404PageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
