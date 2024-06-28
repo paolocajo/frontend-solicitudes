@@ -18,4 +18,7 @@ export class SolicitudFinalizadaService {
     });
     return this.http.post<any>(this.apiUrl, solicitudFinalizada, { headers });
   }
+  getSolicitudesFinalizadas(): Observable<SolicitudFinalizada[]> {
+    return this.http.get<SolicitudFinalizada[]>(this.apiUrl);
+  }
 }

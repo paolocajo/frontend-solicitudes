@@ -3,7 +3,7 @@ import { Usuario } from './Usuario';
 
 export interface SolicitudFinalizada {
   idFinalizado: number | null;
-  idSolicitud: Solicitud | null | number;
+  idSolicitud: Solicitud;
   fechaFinalizacion: Date | null;
   idUsuarioFinalizador: Usuario | null;
 }
