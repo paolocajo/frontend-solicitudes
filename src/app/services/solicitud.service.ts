@@ -30,4 +30,11 @@ export class SolicitudService {
     });
     return this.http.post<any>(this.apiUrl, solicitud, { headers });
   }
+  editarSolicitud(solicitud: any, id: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      accept: '*/*',
+    });
+    return this.http.put<any>(`${this.apiUrl}/${id}`, solicitud, { headers });
+  }
 }
