@@ -9,6 +9,12 @@ import { Usuario } from '../interfaces/Usuario';
 export class UsuarioService {
   private apiUrl = 'http://localhost:8080/usuario';
 
+  getByNombreUsuarioAndContrasena(usuario: any, contrasena: any) {
+    return this.http.post<any>(
+      `${this.apiUrl}/login?username=${usuario}&password=${contrasena}`,
+      {}
+    );
+  }
   constructor(private http: HttpClient) {}
 
   getUsuarios(): Observable<Usuario[]> {

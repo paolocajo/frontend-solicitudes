@@ -17,6 +17,7 @@ import { Nav1Component } from './components/nav-1/nav-1.component';
 import { Nav2Component } from './components/nav-2/nav-2.component';
 import { Error404PageComponent } from './pages/error-404-page/error-404-page.component';
 import { FormsModule } from '@angular/forms';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     Nav1Component,
     Nav2Component,
     Error404PageComponent,
+    LoginPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

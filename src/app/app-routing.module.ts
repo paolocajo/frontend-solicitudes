@@ -10,6 +10,7 @@ import { SolicitudesActivasPageComponent } from './pages/solicitudes-activas-pag
 import { SolicitudesEliminadasPageComponent } from './pages/solicitudes-eliminadas-page/solicitudes-eliminadas-page.component';
 import { SolicitudesFinalizadasPageComponent } from './pages/solicitudes-finalizadas-page/solicitudes-finalizadas-page.component';
 import { Error404PageComponent } from './pages/error-404-page/error-404-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 const routes: Routes = [
   {
@@ -37,10 +38,14 @@ const routes: Routes = [
     component: SolicitudesFinalizadasPageComponent,
   },
   {
+    path: 'login',
+    component: LoginPageComponent,
+  },
+  {
     path: 'error-404',
     component: Error404PageComponent,
   },
-  { path: '', redirectTo: '/solicitudes-activas', pathMatch: 'full' }, // Default
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default
   { path: '**', redirectTo: '/error-404', pathMatch: 'full' }, // 404
 ];
 

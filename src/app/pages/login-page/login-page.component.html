@@ -1,0 +1,23 @@
+<app-nav-1></app-nav-1>
+<section>
+  <div class="container px-4 py-4">
+    <div class="row gx-4 justify-content-center">
+      <div class="col-lg-4">
+        <h2 class="text-center py-4">Iniciar Sesión</h2>
+        <form class="d-flex flex-column">
+          <div class="form-group pb-4">
+            <label for="codigo" class="pb-2">Usuario</label>
+            <input type="text" class="form-control" id="usuario" name="codigo" aria-describedby="usuarioHelp"
+              placeholder="usuario" [(ngModel)]="newLogin.usuario" required>
+          </div>
+          <div class="form-group pb-4">
+            <label for="codigo" class="pb-2">Contraseña</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" aria-describedby="codigoHelp"
+              placeholder="contraseña" [(ngModel)]="newLogin.contrasena" required>
+          </div>
+          <button (click)="guardar()" class="btn btn-primary ">Ingresar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
