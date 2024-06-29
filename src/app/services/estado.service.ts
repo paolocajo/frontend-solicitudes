@@ -7,20 +7,18 @@ export interface Estado {
 }
 
 @Injectable({
-  providedIn: 'root', // Esto asegura que el servicio sea un Singleton
+  providedIn: 'root',
 })
 export class EstadoService {
   private readonly STORAGE_KEY = 'appEstado';
+  private estado: Estado | null = null;
 
   constructor() {
-    // Cargar el estado del almacenamiento local cuando el servicio se inicializa
     const savedEstado = localStorage.getItem(this.STORAGE_KEY);
     if (savedEstado) {
       this.estado = JSON.parse(savedEstado);
     }
   }
-
-  private estado: Estado | null = null;
 
   setEstado(estado: Estado): void {
     this.estado = estado;

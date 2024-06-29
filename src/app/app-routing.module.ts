@@ -11,31 +11,53 @@ import { SolicitudesEliminadasPageComponent } from './pages/solicitudes-eliminad
 import { SolicitudesFinalizadasPageComponent } from './pages/solicitudes-finalizadas-page/solicitudes-finalizadas-page.component';
 import { Error404PageComponent } from './pages/error-404-page/error-404-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AuthGuard } from './guards/auth.guard.spec';
 
 const routes: Routes = [
   {
     path: 'detalle-solicitud-activa/:id',
     component: DetalleSolicitudActivaPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'detalle-solicitud-eliminada/:id',
     component: DetalleSolicitudEliminadaPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'detalle-solicitud-finalizada/:id',
     component: DetalleSolicitudFinalizadaPageComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'editar-solicitud/:id', component: EditarSolicitudPageComponent },
-  { path: 'eliminar-solicitud/:id', component: EliminarSolicitudPageComponent },
-  { path: 'nueva-solicitud', component: NuevaSolicitudPageComponent },
-  { path: 'solicitudes-activas', component: SolicitudesActivasPageComponent },
+  {
+    path: 'editar-solicitud/:id',
+    component: EditarSolicitudPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'eliminar-solicitud/:id',
+    component: EliminarSolicitudPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'nueva-solicitud',
+    component: NuevaSolicitudPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'solicitudes-activas',
+    component: SolicitudesActivasPageComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'solicitudes-eliminadas',
     component: SolicitudesEliminadasPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'solicitudes-finalizadas',
     component: SolicitudesFinalizadasPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
