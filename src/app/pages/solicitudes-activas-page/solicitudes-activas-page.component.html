@@ -33,7 +33,7 @@
               <td>{{ solicitud.modificado ? 'Sí' : 'No' }}</td>
               <td>
                 <div class="btn-group btn-group-s" role="group" aria-label="Basic example">
-                  <a [href]="'detalle-solicitud-activa/' + solicitud.idUsuarioSolicitante.idUsuario">
+                  <a [href]="'detalle-solicitud-activa/' + solicitud.idSolicitud">
                     <button type="button" class="btn btn-primary">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-eye" viewBox="0 0 16 16">
@@ -44,7 +44,7 @@
                       </svg>
                     </button>
                   </a>
-                  <a [href]="'editar-solicitud/' + solicitud.idUsuarioSolicitante.idUsuario">
+                  <a [href]="'editar-solicitud/' + solicitud.idSolicitud">
                     <button type="button" class="btn btn-success">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -55,7 +55,7 @@
                       </svg>
                     </button>
                   </a>
-                  <a [href]="'eliminar-solicitud/' + solicitud.idUsuarioSolicitante.idUsuario">
+                  <a [href]="'eliminar-solicitud/' + solicitud.idSolicitud">
                     <button type="button" class="btn btn-danger">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-trash" viewBox="0 0 16 16">

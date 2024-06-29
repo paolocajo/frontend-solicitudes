@@ -49,7 +49,7 @@ export class DetalleSolicitudActivaPageComponent implements OnInit {
   }
 
   newFinalizado = {
-    idFinalizado: 0,
+    idFinalizado: null,
     idSolicitud: null,
     fechaFinalizacion: null,
     idUsuarioFinalizador: null,

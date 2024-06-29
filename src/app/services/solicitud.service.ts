@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Solicitud } from '../interfaces/Solicitud';
 
@@ -22,5 +22,12 @@ export class SolicitudService {
       `${this.apiUrl}/actualizar-estado/${id}?estado=finalizada`,
       id
     );
+  }
+  crearSolicitud(solicitud: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      accept: '*/*',
+    });
+    return this.http.post<any>(this.apiUrl, solicitud, { headers });
   }
 }
