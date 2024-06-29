@@ -11,7 +11,7 @@ import { SolicitudEliminadaService } from '../../services/solicitud-eliminada.se
 @Component({
   selector: 'app-eliminar-solicitud-page',
   templateUrl: './eliminar-solicitud-page.component.html',
-  styleUrl: './eliminar-solicitud-page.component.css',
+  styleUrls: ['./eliminar-solicitud-page.component.css'],
 })
 export class EliminarSolicitudPageComponent implements OnInit {
   solicitud: Solicitud = {} as Solicitud;
@@ -81,16 +81,19 @@ export class EliminarSolicitudPageComponent implements OnInit {
       },
     };
 
-    Promise.all([
-      firstValueFrom(
-        this.solicitudService.actualizarEstadoPorId(id, 'eliminada')
-      ),
-      firstValueFrom(
-        this.solicitudEliminadaService.crearSolicitudEliminada(bodyEliminado)
-      ),
-    ]).catch((error) => {
-      console.error('Error:', error);
-    });
-    this.router.navigate(['solicitudes-eliminadas']);
+    firstValueFrom(
+      this.solicitudEliminadaService.crearSolicitudEliminada(bodyEliminado)
+    )
+      .then(() =>
+        firstValueFrom(
+          this.solicitudService.actualizarEstadoPorId(id, 'eliminada')
+        )
+      )
+      .then(() => {
+        this.router.navigate(['solicitudes-eliminadas']);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
 }

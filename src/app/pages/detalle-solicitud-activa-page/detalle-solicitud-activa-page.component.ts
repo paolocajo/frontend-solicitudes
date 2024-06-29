@@ -79,16 +79,19 @@ export class DetalleSolicitudActivaPageComponent implements OnInit {
       },
     };
 
-    Promise.all([
-      firstValueFrom(
-        this.solicitudService.actualizarEstadoPorId(id, 'finalizada')
-      ),
-      firstValueFrom(
-        this.solicitudFinalizadaService.crearSolicitudFinalizada(bodyFinalizado)
-      ),
-    ]).catch((error) => {
-      console.error('Error:', error);
-    });
-    this.router.navigate(['solicitudes-finalizadas']);
+    firstValueFrom(
+      this.solicitudFinalizadaService.crearSolicitudFinalizada(bodyFinalizado)
+    )
+      .then(() =>
+        firstValueFrom(
+          this.solicitudService.actualizarEstadoPorId(id, 'finalizada')
+        )
+      )
+      .then(() => {
+        this.router.navigate(['solicitudes-finalizadas']);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
 }
