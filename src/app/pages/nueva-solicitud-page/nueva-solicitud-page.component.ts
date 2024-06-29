@@ -7,7 +7,7 @@ import { SolicitudService } from '../../services/solicitud.service';
 @Component({
   selector: 'app-nueva-solicitud-page',
   templateUrl: './nueva-solicitud-page.component.html',
-  styleUrl: './nueva-solicitud-page.component.css',
+  styleUrls: ['./nueva-solicitud-page.component.css'],
 })
 export class NuevaSolicitudPageComponent implements OnInit {
   usuarios: Usuario[] = [];
@@ -25,20 +25,26 @@ export class NuevaSolicitudPageComponent implements OnInit {
   }
 
   newAgregado = {
-    idSolicitud: null, //default
-    fechaRegistro: null, //fecha FORM
-    codigo: null, //codigo  FORM
-    detalle: null, // detalle  FORM
+    idSolicitud: null, // default
+    fechaRegistro: null, // fecha FORM
+    codigo: null, // codigo FORM
+    detalle: null, // detalle FORM
     modificado: false, // default false
-    estado: 'activa', //default activa
-    idUsuarioSolicitante: null, //id  FORM
+    estado: 'activa', // default activa
+    idUsuarioSolicitante: null, // id FORM
   };
 
   guardar() {
-    console.log(this.newAgregado);
+    if (!this.newAgregado.fechaRegistro) {
+      console.error('Fecha de registro no puede ser nula');
+      return;
+    }
+
+    const fecha = new Date(this.newAgregado.fechaRegistro);
+    const formattedFecha = fecha.toISOString().split('T')[0]; // Formato yyyy-MM-dd
     let bodyAgregado = {
       idSolicitud: 0,
-      fechaRegistro: this.newAgregado.fechaRegistro,
+      fechaRegistro: formattedFecha,
       codigo: this.newAgregado.codigo,
       detalle: this.newAgregado.detalle,
       modificado: this.newAgregado.modificado,
@@ -48,6 +54,7 @@ export class NuevaSolicitudPageComponent implements OnInit {
         nombreUsuario: 'string',
       },
     };
+    // console.log(bodyAgregado);
     this.solicitudService.crearSolicitud(bodyAgregado).subscribe(
       (response) => {
         console.log('Solicitud creada:', response);

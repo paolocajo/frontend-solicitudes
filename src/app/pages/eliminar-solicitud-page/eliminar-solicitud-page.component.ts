@@ -58,9 +58,16 @@ export class EliminarSolicitudPageComponent implements OnInit {
 
   guardar(id: any) {
     this.newEliminado.idSolicitud = id;
+
+    let formattedFechaEliminacion = null;
+    if (this.newEliminado.fechaEliminacion) {
+      const fechaEliminacion = new Date(this.newEliminado.fechaEliminacion);
+      formattedFechaEliminacion = fechaEliminacion.toISOString().split('T')[0]; // Formato yyyy-MM-dd
+    }
+
     console.log(this.newEliminado);
     let bodyEliminado = {
-      idFinalizado: 0,
+      idEliminado: 0,
       idSolicitud: {
         idSolicitud: this.newEliminado.idSolicitud,
         fechaRegistro: '',
@@ -74,7 +81,7 @@ export class EliminarSolicitudPageComponent implements OnInit {
         },
       },
       motivo: this.newEliminado.motivo,
-      fechaEliminacion: this.newEliminado.fechaEliminacion,
+      fechaEliminacion: formattedFechaEliminacion,
       idUsuarioEliminador: {
         idUsuario: this.newEliminado.idUsuarioEliminador,
         nombreUsuario: 'string',

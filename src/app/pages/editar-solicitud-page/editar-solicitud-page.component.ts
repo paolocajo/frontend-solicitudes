@@ -15,7 +15,7 @@ export class EditarSolicitudPageComponent implements OnInit {
   solicitud: Solicitud = {} as Solicitud;
   usuarios: Usuario[] = [];
   idSolicitud: string | null = null;
-  newEditado: any = {}; // Inicializa aquí para asegurar que tenga un valor inicial
+  newEditado: any = {};
 
   constructor(
     private solicitudService: SolicitudService,
@@ -38,7 +38,6 @@ export class EditarSolicitudPageComponent implements OnInit {
           this.solicitud = solicitudData ?? ({} as Solicitud);
           this.usuarios = usuariosData ?? [];
 
-          // Inicializa newEditado con los datos de la solicitud y usuarios
           this.newEditado = {
             idSolicitud: this.solicitud.idSolicitud,
             fechaRegistro: this.solicitud.fechaRegistro,
@@ -58,10 +57,17 @@ export class EditarSolicitudPageComponent implements OnInit {
   }
 
   guardar(id: any) {
+    if (!this.newEditado.fechaRegistro) {
+      console.error('Fecha de registro no puede ser nula');
+      return;
+    }
+
+    const fecha = new Date(this.newEditado.fechaRegistro);
+    const formattedFecha = fecha.toISOString().split('T')[0];
     console.log(this.newEditado);
     let bodyEditado = {
       idSolicitud: id,
-      fechaRegistro: this.newEditado.fechaRegistro,
+      fechaRegistro: formattedFecha,
       codigo: this.newEditado.codigo,
       detalle: this.newEditado.detalle,
       modificado: this.newEditado.modificado,

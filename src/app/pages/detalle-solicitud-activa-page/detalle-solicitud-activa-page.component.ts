@@ -57,6 +57,15 @@ export class DetalleSolicitudActivaPageComponent implements OnInit {
 
   guardar(id: any) {
     this.newFinalizado.idSolicitud = id;
+
+    let formattedFechaFinalizacion = null;
+    if (this.newFinalizado.fechaFinalizacion) {
+      const fechaFinalizacion = new Date(this.newFinalizado.fechaFinalizacion);
+      formattedFechaFinalizacion = fechaFinalizacion
+        .toISOString()
+        .split('T')[0]; // Formato yyyy-MM-dd
+    }
+
     console.log(this.newFinalizado);
     let bodyFinalizado = {
       idFinalizado: 0,
@@ -72,7 +81,7 @@ export class DetalleSolicitudActivaPageComponent implements OnInit {
           nombreUsuario: 'string',
         },
       },
-      fechaFinalizacion: this.newFinalizado.fechaFinalizacion,
+      fechaFinalizacion: formattedFechaFinalizacion,
       idUsuarioFinalizador: {
         idUsuario: this.newFinalizado.idUsuarioFinalizador,
         nombreUsuario: 'string',
