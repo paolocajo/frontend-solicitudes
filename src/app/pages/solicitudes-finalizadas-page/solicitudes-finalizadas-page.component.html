@@ -17,6 +17,7 @@
               <th scope="col">Código</th>
               <th scope="col">Estado</th>
               <th scope="col">Fue modificado</th>
+              <th scope="col">Finalizado por</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
@@ -28,6 +29,7 @@
               <td>{{ solicitud.idSolicitud.codigo }}</td>
               <td><span class="badge bg-success">{{ solicitud.idSolicitud.estado }}</span></td>
               <td>{{ solicitud.idSolicitud.modificado ? 'Sí' : 'No' }}</td>
+              <td>{{"@"}}{{ solicitud.idUsuarioFinalizador.nombreUsuario }}</td>
               <td>
                 <div class="btn-group btn-group-s" role="group" aria-label="Basic example">
                   <a [href]="'detalle-solicitud-finalizada/' + solicitud.idFinalizado">
