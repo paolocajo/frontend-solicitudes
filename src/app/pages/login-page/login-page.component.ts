@@ -1,10 +1,8 @@
-// login-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../interfaces/Usuario';
-import { EstadoService } from '../../services/estado.service';
-import { Estado } from '../../interfaces/Estado';
+import { EstadoService, Estado } from '../../services/estado.service';
 
 @Component({
   selector: 'app-login-page',
@@ -44,7 +42,7 @@ export class LoginPageComponent implements OnInit {
         };
         this.estadoService.setEstado(estado);
         console.log('Estado establecido:', this.estadoService.getEstado());
-        this.router.navigate(['/solicitudes-activas']);
+        this.router.navigate(['/solicitudes-activas']); // Navega después de establecer el estado
       } else {
         console.error('Usuario no válido');
       }

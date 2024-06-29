@@ -6,7 +6,9 @@
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item text-white align-middle mx-4">¡Bienvenido! {{"@"}}{{estado.nombreUsuario}}</li>
+        <li *ngIf="estado.authenticated" class="nav-item text-white align-middle mx-4">
+          ¡Bienvenido! {{"@"}}{{estado.nombreUsuario}}
+        </li>
         <li class="nav-item"><button type="button" (click)="cerrarSesion()" class="btn btn-light">Cerrar
             Sesión</button></li>
       </ul>
