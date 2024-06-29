@@ -21,4 +21,7 @@ export class SolicitudEliminadaService {
   getSolicitudesEliminadas(): Observable<SolicitudEliminada[]> {
     return this.http.get<SolicitudEliminada[]>(this.apiUrl);
   }
+  getSolicitudEliminadaPorId(id: number): Observable<SolicitudEliminada> {
+    return this.http.get<SolicitudEliminada>(`${this.apiUrl}/${id}`);
+  }
 }

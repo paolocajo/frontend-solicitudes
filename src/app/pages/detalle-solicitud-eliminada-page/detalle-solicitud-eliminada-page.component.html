@@ -1,2 +1,39 @@
 <app-nav-1></app-nav-1>
 <app-nav-2></app-nav-2>
+<section>
+  <div class="container px-4 py-4">
+    <div class="row gx-4 justify-content-center">
+      <div class="col-lg-4">
+        <h2 class="text-center py-4">Detalle de solicitud eliminada</h2>
+        <form class="d-flex flex-column">
+          <div class="form-group pb-4">
+            <label for="fecha-registro" class="pb-2 fw-bold">Fecha de registro:</label>
+            <p>{{solicitudEliminada.idSolicitud.fechaRegistro}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="usuario" class="pb-2  fw-bold">Usuario</label>
+            <p>{{"@"}}{{solicitudEliminada.idSolicitud.idUsuarioSolicitante.nombreUsuario}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="codigo" class="pb-2 fw-bold">Código</label>
+            <p>{{solicitudEliminada.idSolicitud.codigo}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="detalle" class="form-label fw-bold">Detalle</label>
+            <p>{{solicitudEliminada.idSolicitud.detalle}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="modificado" class="form-label fw-bold">Fue modificado</label>
+            <p>{{solicitudEliminada.idSolicitud.modificado ? "Sí" : "No"}}</p>
+          </div>
+          <div class="alert alert-danger" role="alert">
+            <p class="text-center">Solicitud eliminada por:
+              {{"@"}}{{solicitudEliminada.idUsuarioEliminador.nombreUsuario}}</p>
+            <p class="text-center">Fecha eliminación: {{solicitudEliminada.fechaEliminacion}}</p>
+            <p class="text-center">Motivo: {{solicitudEliminada.motivo}}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

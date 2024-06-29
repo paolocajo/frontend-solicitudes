@@ -2,9 +2,9 @@ import { Solicitud } from './Solicitud';
 import { Usuario } from './Usuario';
 
 export interface SolicitudEliminada {
-  idEliminado: number | null;
+  idEliminado: number;
   idSolicitud: Solicitud;
-  motivo: string | null;
-  fechaEliminacion: Date | null;
-  idUsuarioEliminador: Usuario | null;
+  motivo: string;
+  fechaEliminacion: Date;
+  idUsuarioEliminador: Usuario;
 }

@@ -21,4 +21,7 @@ export class SolicitudFinalizadaService {
   getSolicitudesFinalizadas(): Observable<SolicitudFinalizada[]> {
     return this.http.get<SolicitudFinalizada[]>(this.apiUrl);
   }
+  getSolicitudFinalizadaPorId(id: number): Observable<SolicitudFinalizada> {
+    return this.http.get<SolicitudFinalizada>(`${this.apiUrl}/${id}`);
+  }
 }

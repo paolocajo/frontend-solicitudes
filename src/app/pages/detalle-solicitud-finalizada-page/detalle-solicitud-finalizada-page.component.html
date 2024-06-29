@@ -1,2 +1,39 @@
 <app-nav-1></app-nav-1>
 <app-nav-2></app-nav-2>
+<section>
+  <div class="container px-4 py-4">
+    <div class="row gx-4 justify-content-center">
+      <div class="col-lg-4">
+        <h2 class="text-center py-4">Detalle de solicitud finalizada</h2>
+        <form class="d-flex flex-column">
+          <div class="form-group pb-4">
+            <label for="fecha-registro" class="pb-2 fw-bold">Fecha de registro:</label>
+            <p>{{solicitudFinalizada.idSolicitud.fechaRegistro}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="usuario" class="pb-2  fw-bold">Usuario</label>
+            <p>{{"@"}}{{solicitudFinalizada.idSolicitud.idUsuarioSolicitante.nombreUsuario}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="codigo" class="pb-2 fw-bold">Código</label>
+            <p>{{solicitudFinalizada.idSolicitud.codigo}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="detalle" class="form-label fw-bold">Detalle</label>
+            <p>{{solicitudFinalizada.idSolicitud.detalle}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="modificado" class="form-label fw-bold">Fue modificado</label>
+            <p>{{solicitudFinalizada.idSolicitud.modificado ? "Sí" : "No"}}</p>
+          </div>
+          <div class="alert alert-success" role="alert">
+            <p class="text-center">Solicitud finalizada por:
+              {{"@"}}{{solicitudFinalizada.idUsuarioFinalizador.nombreUsuario}}</p>
+            <p class="text-center">Fecha finalización: {{solicitudFinalizada.fechaFinalizacion}}</p>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
