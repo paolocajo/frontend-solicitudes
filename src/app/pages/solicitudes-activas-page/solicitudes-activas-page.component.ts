@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Solicitud } from '../../interfaces/Solicitud';
 import { SolicitudService } from '../../services/solicitud.service';
+import { EstadoService } from '../../services/estado.service';
 
 @Component({
   selector: 'app-solicitudes-activas-page',
@@ -10,7 +11,10 @@ import { SolicitudService } from '../../services/solicitud.service';
 export class SolicitudesActivasPageComponent implements OnInit {
   solicitudesActivas: Solicitud[] = [];
 
-  constructor(private solicitudService: SolicitudService) {}
+  constructor(
+    private solicitudService: SolicitudService,
+    private estadoService: EstadoService
+  ) {}
 
   ngOnInit(): void {
     this.solicitudService
@@ -18,5 +22,6 @@ export class SolicitudesActivasPageComponent implements OnInit {
       .subscribe((data: Solicitud[]) => {
         this.solicitudesActivas = data;
       });
+    console.log(this.estadoService.getEstado());
   }
 }
