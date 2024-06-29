@@ -1,3 +1,4 @@
+// login-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
@@ -56,10 +57,16 @@ export class LoginPageComponent implements OnInit {
         nombreUsuario: '',
         authenticated: false,
       });
+      this.estadoService.setEstado({
+        idUsuario: 0,
+        nombreUsuario: '',
+        authenticated: false,
+      });
     }
 
     console.log('Petición enviada:', this.newLogin);
     console.log('Usuario:', this.usuario);
+    console.log('Estado:', this.estadoService.getEstado());
     console.log('Estado:', this.estadoService.getEstado());
   }
 }
