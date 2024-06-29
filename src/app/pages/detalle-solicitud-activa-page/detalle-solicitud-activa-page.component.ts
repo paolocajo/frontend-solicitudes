@@ -80,7 +80,9 @@ export class DetalleSolicitudActivaPageComponent implements OnInit {
     };
 
     Promise.all([
-      firstValueFrom(this.solicitudService.actualizarEstadoPorId(id)),
+      firstValueFrom(
+        this.solicitudService.actualizarEstadoPorId(id, 'finalizada')
+      ),
       firstValueFrom(
         this.solicitudFinalizadaService.crearSolicitudFinalizada(bodyFinalizado)
       ),

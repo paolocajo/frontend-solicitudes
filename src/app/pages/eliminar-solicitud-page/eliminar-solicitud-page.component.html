@@ -1,2 +1,51 @@
 <app-nav-1></app-nav-1>
 <app-nav-2></app-nav-2>
+<section>
+  <div class="container px-4 py-4">
+    <div class="row gx-4 justify-content-center">
+      <div class="col-lg-4 pb-4">
+        <h2 class="text-center py-4">Eliminar solicitud</h2>
+        <form class="d-flex flex-column">
+          <div class="form-group pb-4">
+            <label for="fecha-registro" class="pb-2 fw-bold">Fecha de registro:</label>
+            <p>{{solicitud.fechaRegistro}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="usuario" class="pb-2  fw-bold">Usuario</label>
+            <p>{{"@"}}{{solicitud.idUsuarioSolicitante.nombreUsuario}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="codigo" class="pb-2 fw-bold">Código</label>
+            <p>{{solicitud.codigo}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="detalle" class="form-label fw-bold">Detalle</label>
+            <p>{{solicitud.detalle}}</p>
+          </div>
+          <div class="form-group pb-4">
+            <label for="idUsuarioEliminador" class="pb-2">Usuario que elimina</label>
+            <select class="form-select" aria-label="select user" id="idUsuarioEliminador"
+              [(ngModel)]="newEliminado.idUsuarioEliminador" name="idUsuarioEliminador">
+              <option selected disabled>Elige un usuario</option>
+              <option *ngFor="let usuario of usuarios; let i = index" [value]="usuario.idUsuario">
+                {{"@"}}{{usuario.nombreUsuario}}</option>
+            </select>
+          </div>
+          <div class="form-group pb-4">
+            <label for="fechaEliminacion" class="pb-2">Fecha de eliminación</label>
+            <input type="date" class="form-control" id="fechaEliminacion" name="fechaEliminacion"
+              aria-describedby="fechaHelp" placeholder="Coloca la fecha de registro"
+              [(ngModel)]="newEliminado.fechaEliminacion">
+          </div>
+          <div class="form-group pb-4">
+            <label for="motivo" class="form-label">Detalle</label>
+            <textarea class="form-control" id="motivo" name="motivo" rows="3"
+              placeholder="Escribe el motivo de la eliminación" [(ngModel)]="newEliminado.motivo" required></textarea>
+          </div>
+
+          <button class="btn btn-danger" (click)="guardar(solicitud.idSolicitud)">Eliminar solicitud</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

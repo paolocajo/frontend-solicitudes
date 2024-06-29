@@ -17,9 +17,9 @@ export class SolicitudService {
   getSolicitudActivaPorId(id: number): Observable<Solicitud> {
     return this.http.get<Solicitud>(`${this.apiUrl}/${id}`);
   }
-  actualizarEstadoPorId(id: number): Observable<Solicitud> {
+  actualizarEstadoPorId(id: number, estado: string): Observable<Solicitud> {
     return this.http.put<Solicitud>(
-      `${this.apiUrl}/actualizar-estado/${id}?estado=finalizada`,
+      `${this.apiUrl}/actualizar-estado/${id}?estado=${estado}`,
       id
     );
   }
